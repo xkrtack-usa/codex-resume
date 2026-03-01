@@ -177,6 +177,13 @@ const profileData = {
       cta: "Read activity post",
     },
   ],
+  videos: [
+    {
+      title: "Featured YouTube Video",
+      description: "Career and project-related video highlight.",
+      url: "https://www.youtube.com/watch?v=f-P8Gz-lgDE",
+    },
+  ],
   skills: [
     "Post-sales Technical Support",
     "Technical Account Management",
@@ -281,6 +288,54 @@ const renderProjects = () => {
     .join("");
 };
 
+const getYouTubeEmbedUrl = (url) => {
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname.includes("youtube.com")) {
+      if (parsed.pathname === "/watch") {
+        const id = parsed.searchParams.get("v");
+        return id ? `https://www.youtube.com/embed/${id}` : null;
+      }
+      if (parsed.pathname.startsWith("/shorts/")) {
+        const id = parsed.pathname.split("/")[2];
+        return id ? `https://www.youtube.com/embed/${id}` : null;
+      }
+    }
+    if (parsed.hostname === "youtu.be") {
+      const id = parsed.pathname.replace("/", "");
+      return id ? `https://www.youtube.com/embed/${id}` : null;
+    }
+  } catch {
+    return null;
+  }
+  return null;
+};
+
+const renderVideos = () => {
+  const container = document.getElementById("videoList");
+  if (!container) return;
+
+  container.innerHTML = profileData.videos
+    .map((video) => {
+      const embedUrl = getYouTubeEmbedUrl(video.url);
+      return `
+      <article class="video-card">
+        <div class="video-frame">
+          ${
+            embedUrl
+              ? `<iframe src="${embedUrl}" title="${video.title}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+              : `<a href="${video.url}" target="_blank" rel="noreferrer">Watch on YouTube</a>`
+          }
+        </div>
+        <h3>${video.title}</h3>
+        <p>${video.description}</p>
+        <a href="${video.url}" target="_blank" rel="noreferrer">Open on YouTube</a>
+      </article>
+    `;
+    })
+    .join("");
+};
+
 const renderSkills = () => {
   const container = document.getElementById("skillList");
   if (!container) return;
@@ -308,6 +363,7 @@ const init = () => {
   renderExperience();
   renderEducation();
   renderProjects();
+  renderVideos();
   renderSkills();
 
   const year = document.getElementById("year");

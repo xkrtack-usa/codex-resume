@@ -346,6 +346,60 @@ h1 {
   font-size: 0.86rem;
 }
 
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.85rem;
+}
+
+.video-card {
+  border: 1px solid var(--card-border);
+  border-radius: 13px;
+  padding: 0.95rem;
+  background: rgba(10, 25, 31, 0.72);
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-frame a {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.video-card h3 {
+  margin: 0.75rem 0 0.45rem;
+  font-size: 1rem;
+}
+
+.video-card p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.video-card > a {
+  margin-top: 0.8rem;
+  display: inline-block;
+  color: var(--accent);
+  font-size: 0.86rem;
+}
+
 .skills {
   list-style: none;
   padding: 0;
