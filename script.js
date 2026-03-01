@@ -41,12 +41,14 @@ const profileData = {
     },
     {
       role: "IT Skilled Industry Personnel (Military Service)",
-      company: "CCR Inc., Seoul, Republic of Korea",
+      company: "CCR Inc. / The Standard Corp., Seoul & Gunpo, Republic of Korea",
       period: "February 2020 - March 2022",
       details: [
         "Managed QA for RF Online and diagnosed game server defects.",
         "Handled overseas publisher communication, technical support, and contract renewals as part of business development.",
         "Ran cross-validation across test, development, and production environments for patch releases.",
+        "Managed IRE (irreversible electroporation) medical device tasks and validation.",
+        "Executed IRE testing with K-Bio in Osong, South Korea and prepared scope and 3D model materials.",
       ],
     },
     {
@@ -57,15 +59,6 @@ const profileData = {
         "Supported EMR operations and technical troubleshooting across front-end workflows and back-end systems.",
         "Investigated incidents by capturing logs, querying database tables, updating fields, and cycling servers.",
         "Prioritized issue resolution based on severity and urgency while balancing client and business needs.",
-      ],
-    },
-    {
-      role: "Development Associate",
-      company: "The Standard Corp., Gunpo, Republic of Korea",
-      period: "Date not listed in source resume",
-      details: [
-        "Managed IRE (irreversible electroporation) medical device tasks and validation.",
-        "Executed IRE testing with K-Bio in Osong, South Korea and prepared scope and 3D model materials.",
       ],
     },
   ],
