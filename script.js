@@ -1,10 +1,10 @@
 const profileData = {
   name: "Edwin Tack (Ji-Wan Tack)",
-  headline: "Technical Account Manager | Alibaba Cloud Korea",
+  headline: "Technical Account Manager | Alibaba Cloud Korea | Cloud & Applied AI",
   summary:
-    "Technical account and cloud operations professional with hands-on delivery across architecture design, landing zone implementation, and mission-critical event support.",
+    "Customer-facing cloud professional with experience in Landing Zone architecture, Kubernetes-based PoCs, and technical enablement. Currently Technical Account Manager at Alibaba Cloud Korea; previously Presales Manager (New Relic) at Megazone Cloud. My applied AI portfolio includes a read-only incident-triage agent, W&B Weave evaluation, and OpenTelemetry tracing.",
   about:
-    "I support enterprise cloud customers from onboarding to operations by combining technical support, architecture planning, and business collaboration. My recent work includes post-sales delivery for large-scale projects, cloud modernization guidance, and technical writing through Alibaba Cloud Community activities.",
+    "I help enterprise customers turn technical requirements into cloud architecture plans, product choices, and practical delivery steps. My professional experience covers Landing Zones, database troubleshooting and performance tuning, APM, and PoCs across Linux, Docker, and Kubernetes. My AI portfolio adds bounded agent workflows, synthetic evaluation, and failure analysis, alongside public technical education on chatbot configuration and LLM cost considerations. I communicate technical trade-offs in Korean and English.",
   links: {
     linkedin: "https://www.linkedin.com/in/edwin-tack-495477b3",
     community: "https://community.alibabacloud.com/users/5750724925542254",
@@ -12,8 +12,8 @@ const profileData = {
   },
   highlights: [
     { label: "Current Role", value: "Technical Account Manager" },
-    { label: "Activity Projects", value: "13" },
-    { label: "Primary Domain", value: "Cloud Delivery & Support" },
+    { label: "Portfolio Focus", value: "Agent Evaluation & LLMOps" },
+    { label: "Cloud Foundation", value: "Landing Zones & Kubernetes" },
   ],
   experience: [
     {
@@ -82,6 +82,55 @@ const profileData = {
     "Alibaba Cloud Expert Certification (ACE)",
     "Fluent in Korean and English",
     "Dual Citizenship: USA and Republic of Korea",
+  ],
+  featuredProjects: [
+    {
+      title: "Incident Triage Agent — Architecture & Evaluation",
+      meta: "Portfolio demo | Synthetic data | Read-only tools",
+      description:
+        "Built a bounded incident-triage agent that reads synthetic metrics, logs, and runbooks, then submits a structured diagnosis. Integrated W&B inference, Weave evaluation, and native OpenTelemetry spans.",
+      details: [
+        "Architecture: tool allowlists, JSON/schema validation, case scoping, and per-case limits of six model requests and ten tool attempts. No shell or remediation tools.",
+        "Evaluation: assessed root cause, severity, abstention, evidence-reference integrity, and approval boundaries on eight synthetic cases using openai/gpt-oss-20b.",
+        "Recorded results (v6r2): strict success 6/8; valid submitted diagnosis 7/8; evidence-reference integrity 8/8; approval boundary 8/8. All eight outputs required human approval and recorded no executed actions.",
+        "Failure analysis: unknown telemetry exhausted the request budget without a valid submission; conflicting evidence produced an incorrect database/SEV2 diagnosis. Valid evidence references did not guarantee a correct diagnosis.",
+        "LLMOps: traced model and tool activity, recorded latency and token usage, and used offline regression tests to check protocol and boundary behavior.",
+      ],
+      note:
+        "Scope: a small synthetic demo. Strict success was unchanged from v5; no accuracy improvement or production readiness is established. The approval result describes these eight cases, not a general safety guarantee.",
+    },
+    {
+      title: "AI Technical Enablement — Qwen Cost Considerations",
+      meta: "Public technical talk | August 19, 2026",
+      description:
+        "Presented a developer-community talk on using Qwen in coding workflows, discussing API integration and inference-cost considerations.",
+      details: [
+        "Communicated model capabilities and cost trade-offs through a public technical presentation at Qwen Meetup Seoul.",
+      ],
+      note:
+        "Evidence: the public event page and recording establish the presentation, not a measured customer cost reduction.",
+      link: "https://dev-korea.com/talks/how-to-optimize-vibe-coding-costs-with-qwen-3-8",
+      cta: "View public talk",
+    },
+    {
+      title: "Enterprise Cloud Foundations — Landing Zones & Data Platforms",
+      meta: "Professional experience | Alibaba Korea Inc.",
+      description:
+        "Designed and delivered Landing Zone architecture services, including database localization, performance tuning, and data platform support.",
+      details: [
+        "Provided cloud strategy consulting, architecture planning, and product selection recommendations for enterprise customers.",
+        "Supported customer onboarding and operations through technical guidance, training, risk control, and incident response.",
+      ],
+    },
+    {
+      title: "Kubernetes Observability PoCs — New Relic",
+      meta: "Professional experience | Megazone Cloud | March–October 2022",
+      description:
+        "Delivered New Relic PoCs and APM installations across Linux, Docker, and Kubernetes environments as Presales Manager (New Relic).",
+      details: [
+        "Integrated New Relic with AWS and Azure environments and created technical sales and enablement documentation for prospective customers in South Korea.",
+      ],
+    },
   ],
   projects: [
     {
@@ -185,14 +234,16 @@ const profileData = {
     },
   ],
   skills: [
-    "Post-sales Technical Support",
-    "Technical Account Management",
-    "Cloud Landing Zone Design",
-    "Cloud Architecture Planning",
-    "Risk and Incident Management",
-    "APM Monitoring",
-    "Kubernetes and Docker Delivery",
-    "Cross-functional Stakeholder Communication",
+    "Cloud Architecture & Landing Zone Delivery",
+    "Kubernetes & Docker PoC Delivery",
+    "AI Presales: Demonstrations & Technical Enablement",
+    "Agentic AI: Bounded Tool Calling",
+    "LLMOps: Tracing & Offline Regression Testing",
+    "Agent Evaluation: Task Success, Evidence & Abstention",
+    "W&B Weave & OpenTelemetry",
+    "Tool Allowlists, JSON Validation & Approval Boundaries",
+    "APM, Incident Investigation & Database Troubleshooting",
+    "Korean–English Technical Communication",
   ],
 };
 
@@ -270,6 +321,25 @@ const renderEducation = () => {
   }
 };
 
+const renderFeaturedProjects = () => {
+  const container = document.getElementById("featuredProjectList");
+  if (!container) return;
+  container.innerHTML = profileData.featuredProjects
+    .map(
+      (project) => `
+      <article class="project">
+        <span class="project-meta">${project.meta}</span>
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <ul>${project.details.map((detail) => `<li>${detail}</li>`).join("")}</ul>
+        ${project.note ? `<p class="note">${project.note}</p>` : ""}
+        ${project.link ? `<a href="${project.link}" target="_blank" rel="noreferrer">${project.cta}</a>` : ""}
+      </article>
+    `
+    )
+    .join("");
+};
+
 const renderProjects = () => {
   const container = document.getElementById("projectList");
   if (!container) return;
@@ -343,16 +413,11 @@ const renderSkills = () => {
 };
 
 const init = () => {
-  document.title = `${profileData.name} | Resume`;
+  document.title = `${profileData.name} | Cloud & Applied AI Portfolio`;
   setText("heroName", profileData.name);
   setText("heroHeadline", profileData.headline);
   setText("heroSummary", profileData.summary);
   setText("aboutText", profileData.about);
-
-  const projectHighlight = profileData.highlights.find((item) => item.label === "Activity Projects");
-  if (projectHighlight) {
-    projectHighlight.value = String(profileData.projects.length);
-  }
 
   setLink("linkedinButton", profileData.links.linkedin);
   setLink("contactLinkedinButton", profileData.links.linkedin);
@@ -362,6 +427,7 @@ const init = () => {
   renderHighlights();
   renderExperience();
   renderEducation();
+  renderFeaturedProjects();
   renderProjects();
   renderVideos();
   renderSkills();
