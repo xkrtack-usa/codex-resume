@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edwin Tack | Resume</title>
+    <title>Edwin Tack | Cloud &amp; Applied AI Portfolio</title>
     <meta
       name="description"
-      content="Resume and career highlights for Edwin Tack, Technical Account Manager and cloud professional."
+      content="Edwin Tack, Technical Account Manager at Alibaba Cloud Korea. Cloud architecture, Landing Zones, Kubernetes PoCs, and an applied AI portfolio covering agent evaluation and LLMOps."
     />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
@@ -22,10 +22,12 @@
     <header class="site-header">
       <a class="brand" href="#home">ET</a>
       <nav class="site-nav">
-        <a href="#about">About</a>
+        <a href="#about">Summary</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
+        <a href="#activities">Writing</a>
         <a href="#videos">Videos</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -33,7 +35,7 @@
 
     <main class="page-wrap">
       <section id="home" class="hero reveal">
-        <p class="eyebrow">Resume Website</p>
+        <p class="eyebrow">Cloud &amp; Applied AI Portfolio</p>
         <h1 id="heroName">Edwin Tack</h1>
         <p id="heroHeadline" class="headline"></p>
         <p id="heroSummary" class="summary"></p>
@@ -52,11 +54,21 @@
       </section>
 
       <section id="about" class="panel reveal">
-        <h2>About</h2>
+        <h2>Summary</h2>
         <p id="aboutText"></p>
         <p class="note">
-          Updated from your resume file and Alibaba Cloud Community activity pages.
+          Professional delivery experience and portfolio experiments are identified separately below.
         </p>
+      </section>
+
+      <section id="skills" class="panel reveal">
+        <h2>Core Skills</h2>
+        <ul id="skillList" class="skills"></ul>
+      </section>
+
+      <section id="projects" class="panel reveal">
+        <h2>Project Highlights</h2>
+        <div id="featuredProjectList" class="featured-projects"></div>
       </section>
 
       <section id="experience" class="panel reveal">
@@ -73,9 +85,12 @@
         <ul id="credentialList" class="skills"></ul>
       </section>
 
-      <section id="projects" class="panel reveal">
-        <h2>All Activity Projects</h2>
-        <div id="projectList" class="project-grid"></div>
+      <section id="activities" class="panel reveal">
+        <h2>Public Writing &amp; Activities</h2>
+        <details>
+          <summary>Browse Alibaba Cloud articles and activity posts</summary>
+          <div id="projectList" class="project-grid"></div>
+        </details>
       </section>
 
       <section id="videos" class="panel reveal">
@@ -83,15 +98,10 @@
         <div id="videoList" class="video-grid"></div>
       </section>
 
-      <section id="skills" class="panel reveal">
-        <h2>Core Skills</h2>
-        <ul id="skillList" class="skills"></ul>
-      </section>
-
       <section id="contact" class="panel contact reveal">
         <h2>Contact</h2>
         <p>
-          Open to conversations around cloud architecture, technical account management, and enterprise modernization.
+          Open to conversations about applied AI architecture, AI presales, agent evaluation, and enterprise cloud solutions.
         </p>
         <div class="hero-actions">
           <a id="contactLinkedinButton" class="button button-primary" href="#" target="_blank" rel="noreferrer"
@@ -102,7 +112,7 @@
     </main>
 
     <footer class="site-footer">
-      <span id="year"></span> Edwin Tack. Built as a resume website from LinkedIn profile activity.
+      <span id="year"></span> Edwin Tack. Cloud &amp; Applied AI Portfolio.
     </footer>
   </body>
 </html>
